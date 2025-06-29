@@ -1,7 +1,4 @@
-Got it! Here is a single complete **README.md** file content that you can just copy-paste directly into your project’s `README.md` file:
-
-````markdown
-# Airline Reservation System
+## Airline Reservation System 
 
 A simple Airline Reservation System backend built with Java and Spring Boot.  
 This RESTful API allows managing flights, users, and bookings using an in-memory H2 database.

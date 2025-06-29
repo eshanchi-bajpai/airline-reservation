@@ -1,33 +1,35 @@
 package com.example.airline.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Booking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Link to User
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
+    // Link to Flight
     @ManyToOne
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
-    // Constructors
+    private String bookingDate;
+
     public Booking() {}
 
-    public Booking(User user, Flight flight) {
+    public Booking(User user, Flight flight, String bookingDate) {
         this.user = user;
         this.flight = flight;
+        this.bookingDate = bookingDate;
     }
 
-    // Getters and setters
+    // getters & setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -36,4 +38,7 @@ public class Booking {
 
     public Flight getFlight() { return flight; }
     public void setFlight(Flight flight) { this.flight = flight; }
+
+    public String getBookingDate() { return bookingDate; }
+    public void setBookingDate(String bookingDate) { this.bookingDate = bookingDate; }
 }
